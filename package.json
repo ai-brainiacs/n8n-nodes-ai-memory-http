@@ -1,0 +1,43 @@
+{
+  "name": "n8n-nodes-ai-memory-http",
+  "version": "0.1.1",
+  "description": "",
+  "keywords": [
+    "n8n-community-node-package"
+  ],
+  "license": "MIT",
+  "homepage": "https://brainiacsai.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ai-brainiacs/n8n-nodes-ai-memory-http.git"
+  },
+  "engines": {
+    "node": ">=20.15"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "npx rimraf dist && tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "nodes": [
+      "dist/nodes/MemoryHTTPChat/MemoryHTTPChat.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "~8.32.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.3",
+    "gulp": "^5.0.0",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "langchain": "^0.3.31",
+    "n8n-workflow": "*",
+    "node-fetch": "^3.3.2"
+  }
+}
